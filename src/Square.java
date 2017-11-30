@@ -1,7 +1,13 @@
 public class Square {
+  // the value of the square, a number between 1-9 or 0 if empty
+  // ints default value is 0
+
   private int value;
+
+  // the true means that the number (the same as the index of the array) is possible
   private boolean[] pencilMarks;
 
+  // Susan also use a `count` field
   public Square() {
     this.value = 0;
     // as it has 9 possible numbers, but we start the array at index1, we'll
@@ -13,8 +19,8 @@ public class Square {
   }
 
   public Square(int value) {
-    assert(value > 0 && value < 10):
-      "value should between 0 to 9";
+    assert (value > 0 && value < 10) :
+            "value should between 0 to 9";
     this.value = value;
     pencilMarks = new boolean[0];
   }
@@ -28,7 +34,7 @@ public class Square {
   }
 
   boolean hasUniquePMark() {
-    int trueCount  = 0;
+    int trueCount = 0;
     for (int i = 1; i < this.pencilMarks.length; i++) {
       if (this.pencilMarks[i] == true) {
         trueCount++;
@@ -49,12 +55,17 @@ public class Square {
   }
 
   void removePMarkIfThere(int n) {
-    assert (n > 0 && n < 10):
+    assert (n > 0 && n < 10) :
             "integer should be in the range 1 to 9 inclusive";
     if (this.pencilMarks.length > 0) {
       this.pencilMarks[n] = false;
     }
   }
+
+  // check if the p mark `n` is a possibility in a square
+//  boolean isPMarkTrue(int n) {
+//
+//  }
 
   public String toString() {
     return String.valueOf(this.value);
